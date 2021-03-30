@@ -10,12 +10,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 def get_reccomendation(data,movie_name,index,cosine_sim):
-    present_index=index[movie_name]
-    sim_scores=list(enumerate(cosine_sim[present_index]))
-    sim_scores=sorted(sim_scores, key=lambda x:x[1], reverse=True)
-    sim_scores=sim_scores[1:11]
-    movie_index=[i[0] for i in sim_scores]
-    return data['title'].iloc[movie_index]
+    present_index=index[movie_name] # Get necessary mapping
+    sim_scores=list(enumerate(cosine_sim[present_index])) # List all cosine similarity values for the particular movie
+    sim_scores=sorted(sim_scores, key=lambda x:x[1], reverse=True) #Sort in descending order based on cosine similarity scores
+    sim_scores=sim_scores[1:11] #Select top 10
+    movie_index=[i[0] for i in sim_scores] #Store movie_id in list
+    return data['title'].iloc[movie_index] # Return the title of the movie_index row
 
 def main():
     data=pd.read_csv("tmdb_5000_movies.csv")
@@ -51,3 +51,15 @@ def main():
     
 if __name__ == "__main__":
     main()
+'''Output for The Shawshank Redemption
+531               Civil Brand
+3785                    Prison
+609                Escape Plan
+2868                  Fortress
+4727              Penitentiary
+1779    The 40 Year Old Virgin
+2667          Fatal Attraction
+3871         A Christmas Story
+434           The Longest Yard
+42                 Toy Story 3
+'''
