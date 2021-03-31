@@ -40,6 +40,7 @@ def main():
     Calculating cosine similarity
     '''
     cosine_sim=cosine_similarity(tfidf_matrix,tfidf_matrix)
+    print(cosine_sim)
     '''
     Mapping movie titles to index
     '''
