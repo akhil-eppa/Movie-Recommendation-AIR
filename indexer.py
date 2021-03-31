@@ -17,6 +17,8 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 import re
+import json
+
 stop_words=set(stopwords.words('english'))
 stemmer=PorterStemmer()
 lemmatizer=WordNetLemmatizer()
@@ -84,6 +86,7 @@ def inverted_index_add(index, movie_id, movie_index):
         indices = index.setdefault(word, {})
         indices[movie_id]=locations
     return index # Dictionary with the words/tokens as keys and value is another dictionary with docID as key and posting list as value
+
 def main():
     dataset=pd.read_csv("tmdb_5000_movies.csv") # To be uncommented while testing only
     names=dataset['original_title']
@@ -109,4 +112,9 @@ def main():
         inverted_index_add(index, movie_id, movie_index)
     print(index)
     
+    import json
+
+    with open('index.json', 'w') as fp:
+        json.dump(index, fp)
+
 main()
