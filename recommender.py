@@ -51,7 +51,8 @@ def main():
     
 if __name__ == "__main__":
     main()
-'''Output for The Shawshank Redemption
+'''
+Output for The Shawshank Redemption
 531               Civil Brand
 3785                    Prison
 609                Escape Plan
