@@ -93,9 +93,9 @@ def main():
     dataset['overview']=dataset['overview'].fillna('')
     overviews=dataset['overview']
     #print(word_with_index(overviews[0]))
-    x=overviews[0] #Complete overview text (0 is only for the 1st movie)
+    #x=overviews[0] #Complete overview text (0 is only for the 1st movie)
     #x=word_with_index(x)
-    x=word_preprocess(x) #Split into words, remove puctuatuion, normalize, remove stopwords, lemmitizing  and stemming
+    #x=word_preprocess(x) #Split into words, remove puctuatuion, normalize, remove stopwords, lemmitizing  and stemming
     
     
     #print(x)
@@ -112,7 +112,6 @@ def main():
         inverted_index_add(index, movie_id, movie_index)
     print(index)
     
-    import json
 
     with open('index.json', 'w') as fp:
         json.dump(index, fp)
