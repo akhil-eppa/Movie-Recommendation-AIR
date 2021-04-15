@@ -246,6 +246,7 @@ if __name__ == "__main__":
             for result in results:
                 if result != "Does not exist in the database":
                     x=recommender.get_reccomendation(data,result,rec_index,cosine_sim)
+                    print("\nRecommendations for",result,"->")
                     for i, m in enumerate(x):
                         print((i+1), "-->",m)
                 else:
