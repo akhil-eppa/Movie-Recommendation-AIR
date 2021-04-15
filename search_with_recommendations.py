@@ -245,10 +245,13 @@ if __name__ == "__main__":
             print("\nOther Suitable Recommendations:")    
             for result in results:
                 if result != "Does not exist in the database":
-                    x=recommender.get_reccomendation(data,result,rec_index,cosine_sim)
-                    print("\nRecommendations for",result,"->")
-                    for i, m in enumerate(x):
-                        print((i+1), "-->",m)
+                    try:
+                        x=recommender.get_reccomendation(data,result,rec_index,cosine_sim)
+                        print("\nRecommendations for",result,"->")
+                        for i, m in enumerate(x):
+                            print((i+1), "-->",m)
+                    except:
+                        print("None")
                 else:
                     print("None")
         print("\n")

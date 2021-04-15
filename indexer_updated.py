@@ -17,6 +17,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 import re
+import json
 stop_words=set(stopwords.words('english'))
 stemmer=PorterStemmer()
 lemmatizer=WordNetLemmatizer()
@@ -109,6 +110,8 @@ def main():
         text=word_preprocess(text)
         movie_index=inverted_index(text)
         inverted_index_add(index, movie_id, movie_index)
-    print(index)
+    print(index.keys())
+    with open('index.json', 'w') as fp:
+        json.dump(index, fp)
     
 main()
