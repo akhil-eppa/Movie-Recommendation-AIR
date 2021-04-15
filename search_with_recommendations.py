@@ -5,6 +5,14 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import recommender
+from nltk.stem import PorterStemmer
+import string
+letters = list(string.ascii_lowercase)
+letters.append(list(string.ascii_uppercase))
+
+stemmer=PorterStemmer()
+
+
 
 class Conversion:
     def __init__(self, capacity):
@@ -129,32 +137,43 @@ class Execute:
     def exec(self, exp):
         op = Operators(self.vocab)
         exp = exp.split("sep")
+        try:
+            if(exp[2][0] == '&' and exp[2][1] in letters or exp[2][0] == '|' and exp[2][1] in letters or exp[2][0] == '~' and exp[2][1] in letters):
+                c = exp[2][0]
+                exp[2] = exp[2][1:]
+                exp[3] = exp[3] + c
+        except:
+            pass
 
         for i in exp:
-            if i not in ['&', '|', '~']:
+            if '&' not in i and '|' not in i and '~' not in i:
                 try:
-                    self.push(self.vocab[i])
+                    self.push(self.vocab[stemmer.stem(i)])
                 except KeyError:
                     return ["Does not exist in the database"]
-
+                
             else:
-                if(i == '&'):
-                    val1 = self.pop()
-                    val2 = self.pop()
-                    res = op.intersection(val1, val2)
 
-                elif(i == '~'):
-                    val1 = self.pop()
-                    res = op.diff(val1)
-                else:
-                    val1 = self.pop()
-                    val2 = self.pop()
-                    res = op.union(val1, val2)
+                for char in i:
+                    if(char == '&'):
+                        val1 = self.pop()
+                        val2 = self.pop()
+                        res = op.intersection(val1, val2)
+
+                    elif(char == '~'):
+                        val1 = self.pop()
+                        res = op.diff(val1)
+                    else:
+                        val1 = self.pop()
+                        val2 = self.pop()
+                        res = op.union(val1, val2)
 
 
-                self.push(res)
+                    self.push(res)
   
-        return self.pop()
+        temp = self.pop()
+        self.array = []
+        return temp
                   
 
 class Operators:
