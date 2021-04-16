@@ -10,6 +10,6 @@ Contributers:
 
 
 
-Mean average precision for content based recommender system
+average of precision for content based recommender system
 
-Mean Average precision= (0.8+0.7+0.7+0.7)/4=0.725
+Average of Precisions= (0.8+0.7+0.7+0.7)/4=0.725
