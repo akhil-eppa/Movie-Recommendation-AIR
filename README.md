@@ -7,3 +7,9 @@ Contributers:
 * Akhil 
 * Varun
 * Taran
+
+
+
+Mean average precision for content based recommender system
+
+Mean Average precision= (0.8+0.7+0.7+0.7)/4=0.725
