@@ -110,7 +110,7 @@ def main():
         text=word_preprocess(text)
         movie_index=inverted_index(text)
         inverted_index_add(index, movie_id, movie_index)
-    print(index.keys())
+    print(index)
     with open('index.json', 'w') as fp:
         json.dump(index, fp)
     

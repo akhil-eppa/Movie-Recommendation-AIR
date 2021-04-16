@@ -1,0 +1,109 @@
+'''
+Output for The Shawshank Redemption
+531               Civil Brand
+3785                    Prison
+609                Escape Plan
+2868                  Fortress
+4727              Penitentiary
+'''
+
+similar movies:
+civilbrand
+prison
+escape plan
+shutter island
+penitentiary
+
+Precison -> [4/(4+1)]= 0.8
+
+
+
+'''
+Output for Apollo 13
+1577             Without a Paddle
+3604                    Apollo 18
+487                    Red Planet
+4411                        Proud
+2506                      Madison
+4108    In the Shadow of the Moon
+3993            Journey to Saturn
+373               Mission to Mars
+270                   The Martian
+1275                     Sunshine
+'''
+
+similar movies
+Apollo 18
+Gravity
+Red Planet
+In the Shadow of the Moon
+Journey to Saturn
+Mission to Mars
+The Martian
+Intersteller
+Sunshine
+Armageddon
+
+Precision -> 7/(7+3) = 0.7
+
+
+
+'''
+Movies similar to Avengers: Age of Ultron
+16                    The Avengers
+79                      Iron Man 2
+68                        Iron Man
+26      Captain America: Civil War
+227                 Knight and Day
+31                      Iron Man 3
+1868            Cradle 2 the Grave
+344                    Unstoppable
+1922                    Gettysburg
+531        The Man from U.N.C.L.E.
+'''
+
+similar movies
+The Avengers
+Iron Man 
+Iron Man 2
+Iron Man 3
+Thor
+Captain America: Civil War
+X-Men
+Spiderman
+Knight and Day
+Unstoppable
+
+Precision -> 7/(7+3) = 0.7
+      
+
+
+'''
+Output for Mission: Impossible - Ghost Protocol
+134                    Mission: Impossible - Rogue Nation
+139                               Mission: Impossible III
+2819                                         Act of Valor
+213                                Mission: Impossible II
+282                                             True Lies
+553                                           The Kingdom
+425                                   Mission: Impossible
+2136                           Team America: World Police
+4173    Dr. Strangelove or: How I Learned to Stop Worr...
+2229                                        Machete Kills
+'''    
+
+similar movies
+Mission: Impossible
+Mission: Impossible II
+Mission: Impossible III
+Mission: Impossible - Rogue Nation
+The Recruit
+Spectre
+Minority Report
+Act of Valor
+The Kingdom
+Machete Kills
+
+Precision -> (7/7+3)=0.7
+
+Mean Average precision= (0.8+0.7+0.7+0.7)/4=0.725
